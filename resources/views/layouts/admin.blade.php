@@ -209,7 +209,7 @@
 
             <footer class="footer">
                 <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                  <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. <span class="text-primary">Heer-Sare Brands</span> All rights reserved.</span>
+                  <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022. <span class="text-primary">Heer-Sare Brands</span> All rights reserved.</span>
                 </div>
             </footer>
         </div>
