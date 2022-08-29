@@ -28,14 +28,17 @@ use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditProduct;
 use App\Http\Livewire\Admin\AdminEditProductAttributeComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
+use App\Http\Livewire\Admin\AdminEditShop;
 use App\Http\Livewire\Admin\AdminHomeCategoriesComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
+use App\Http\Livewire\Admin\AdminManageShop;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\Admin\AdminProductAttributesComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\Admin\AdminSettingsComponent;
 use App\Http\Livewire\ContactComponent;
+use App\Http\Livewire\OpenShop;
 use App\Http\Livewire\PolicyComponent;
 use App\Http\Livewire\ReturnPolicyComponent;
 use App\Http\Livewire\TermsAndConditionsComponent;
@@ -64,6 +67,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeComponent::class);
 Route::get('/about', AboutComponent::class);
 Route::get('/shop', ShopComponent::class);
+Route::get('/open-shop', OpenShop::class)->name('new_shop');
 Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
@@ -99,6 +103,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
     // admin show dashboard
    Route::get('/admin/dashboard',AdminComponent::class)->name('admin.dashboard');
+//    Manage shops
+   Route::get('/admin/shop',AdminManageShop::class)->name('admin.shops');
+   Route::get('/admin/EditShop/{id}',AdminEditShop::class)->name('admin.editshop');
 //    admin categories
    Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
    Route::get('/admin/category/Add',AdminAddCategoryComponent::class)->name('admin.Add');

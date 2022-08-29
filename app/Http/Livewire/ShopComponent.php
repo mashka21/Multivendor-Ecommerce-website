@@ -45,6 +45,18 @@ class ShopComponent extends Component
             }
         }
     }
+
+
+    // open your shop
+    public function openShop(){
+        if(Auth::check()){
+            return redirect()->route('new_shop');
+        }else{
+            return redirect()->route('login');
+        }
+    }
+
+
     // use WithPagination;
     public function render()
     {

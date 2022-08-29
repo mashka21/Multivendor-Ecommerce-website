@@ -6,8 +6,17 @@
             <ul>
                 <li class="item-link"><a href="/" class="link">home</a></li>
                 <li class="item-link"><span>Digital & Electronics</span></li>
+            
+                @auth
+                    @if (Auth::user()->usertype==='USR')
+                        <strong class="pull-right"><a href="#" wire:click.prevent='openShop'>Open Your Shop</a></strong>
+                    @endif
+                @endauth
+                
+                 
             </ul>
         </div>
+        
         <div class="row">
 
             <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
