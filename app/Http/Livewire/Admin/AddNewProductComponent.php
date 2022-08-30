@@ -42,6 +42,7 @@ class AddNewProductComponent extends Component
 
     public function mount(){
         $this->stock_status = 'instock';
+        $this->sale_price = 0;
         if(Auth::user()->usertype === 'Vendor'){
             $this->shop_name = Auth::user()->Shop->shop_name;
         }

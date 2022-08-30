@@ -74,8 +74,12 @@
                         @else
                             <div class="wrap-price"><span class="product-price">${{$product->regular_price}}</span></div>
                         @endif
+                        
                         <div class="stock-info in-stock">
                             <p class="availability">Availability: <b>{{$product->stock_status}}</b></p>
+                        </div>
+                        <div class="Store-info ">
+                            <a href=""><p class="availability">Store: <b>{{$product->Shop_name}}</b></p></a>
                         </div>
 
 

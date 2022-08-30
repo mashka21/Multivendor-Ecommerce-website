@@ -25,8 +25,8 @@
                                     <th>Shop Name</th>
                                     <th>Shop Descripion</th>
                                     <th>Status</th>
+                                    <th class="text-center">Action</th>
                                     <th>Registered Date</th>
-                                    <th colspan="2" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,24 +35,20 @@
                                         <td>{{$vendor->id}}</td>
                                         <td>{{$vendor->shop_name}}</td>
                                         <td style="width: 100px important;">{{$vendor->description}}</td>
-                                        {{-- <td>
-                                            @if($vendor->is_active === 1)
-                                            <span class="btn-success btn-sm">Active</span>
-                                            @else
-                                            <span class="btn-info btn-sm">In active</span>
-                                            @endif
-                                        </td> --}}
                                         <td>
                                             <div class="dropdown">
-                                                <a class="btn btn-success btn-sm dropdown-toggle" type="submit" data-toggle="dropdown">Status
-                                                    <span class="caret"></span></a>
+                                                @if ($vendor->is_active == 1)
+                                                    <a class="btn btn-success btn-sm dropdown-toggle" type="submit" data-toggle="dropdown">Active<span class="caret"></span></a>
+                                                @else
+                                                    <a class="btn btn-danger btn-sm dropdown-toggle" type="submit" data-toggle="dropdown">Inactive<span class="caret"></span></a>
+                                                @endif
+                                                    
                                                 <ul class="dropdown-menu">
                                                     <li class="dropdown-item"><a href="#" wire:click.prevent="Activation({{$vendor->id}},'1')">Active</a></li>
                                                     <li class="dropdown-item"><a href="#" wire:click.prevent="Activation({{$vendor->id}},'0')">In Active</a></li>
                                                 </ul>
                                             </div>
                                         </td>
-                                        <td>{{$vendor->created_at}}</td>
                                         <td>
                                             {{-- @if (Auth::user()->usertype === 'vendor')
                                                 <a href="{{route('vendor.edit_vendors',['vendor_id'=>$vendor->id])}}"><i class="fa fa-edit fa-2x"></i></a>
@@ -61,6 +57,7 @@
                                             <a href="#" onclick="confirm('Are you sure to delete this Shop?') || event.stopImmediatePropagation()" wire:click.prevent="deleteShop({{$vendor->id}})"><i class="fa fa-times fa-2x text-danger" style="margin-left: 10px;"></i></a>
                                             {{-- @endif --}}
                                         </td>
+                                        <td>{{$vendor->created_at}}</td>
                                     </tr>
                                 @endforeach
 

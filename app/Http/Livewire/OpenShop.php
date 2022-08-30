@@ -30,7 +30,7 @@ class OpenShop extends Component
         $shop->shop_name = $this->shopname;
         $shop->description = $this->discription;
         $shop->user_id = Auth::user()->id;
-        // $shop->save();
+        $shop->save();
         session()->flash('message','Shop request sent.');
         session()->flash('message1','we will activate as soon as possible in the next 24h');
         $this->sendShopRequestMail($shop);

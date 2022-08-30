@@ -46,7 +46,6 @@ class AdminProductComponent extends Component
     }
 
 
-
     public function render()
     {
         $search = '%'. $this->searchTerm . '%';
@@ -57,7 +56,15 @@ class AdminProductComponent extends Component
                               ->orderBy('id','DESC')->paginate(5);
 
         if(Auth::user()->usertype === 'Vendor'){
-            $products = product::where('Shop_name',Auth::user()->Shop->shop_name)->paginate(5);
+            $products = product::where('Shop_name',Auth::user()->Shop->shop_name)
+                                ->where(function($query) use ($search) {
+                                    return $query
+                                    ->where('name','LIKE',$search)
+                                    ->orwhere('stock_status','LIKE',$search)
+                                    ->orwhere('regular_price','LIKE',$search)
+                                    ->orwhere('sale_price','LIKE',$search);
+                                })
+                                ->orderBy('id','DESC')->paginate(5);
         }
 
 

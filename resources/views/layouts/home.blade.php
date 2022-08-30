@@ -80,14 +80,26 @@
                                             </form>
                                         </ul>
                                     </li>
-                                    @else
+                                    @elseif (Auth::user()->usertype==='USR')
                                      @livewire('user.user-navbar-component')
+                                    @else
+                                        <li>
+                                        <ul>
+                                            <li><div class="alert alert-success" role="alert">Your Shop is not Active</div></li>
+                                            <li class="menu-item">
+                                                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                            </li>
+                                            <form id="logout-form" action="{{route('logout')}}" method="POST">
+                                                @csrf
+                                            </form>
+                                        </ul>
+                                        </li>
                                     @endif
 
-                                    @else
+                                @else
                                     <li class="menu-item" ><a title="Register or Login" href="{{route('login')}}">Login</a></li>
                                     <li class="menu-item" ><a title="Register or Login" href="{{route('register')}}">Register</a></li>
-                                    @endif
+                                @endif
 
                             @endif
                         </ul>

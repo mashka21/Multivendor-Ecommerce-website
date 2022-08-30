@@ -8,18 +8,12 @@
                             <div class="col-md-4">
                                 <p class="pull-left card-title">All Products</p>
                             </div>
-                            @if (Auth::user()->usertype === 'ADM')
-                                <div class="col-md-4">
-                                    <a href="{{route('admin.Addproduct')}}" class="btn btn-success pull-right">Add Products</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" placeholder="Search..." wire:model="searchTerm">
-                                </div>
-                                @else
-                                    <div class="col-md-8">
-                                        <a href="{{route('admin.Addproduct')}}" class="btn btn-success pull-right">Add Products</a>
-                                    </div>
-                            @endif
+                            <div class="col-md-4">
+                                <a href="{{route('admin.Addproduct')}}" class="btn btn-success pull-right">Add Products</a>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="Search..." wire:model="searchTerm">
+                            </div>
                         </div>
                     </div>
 
