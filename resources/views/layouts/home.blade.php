@@ -64,7 +64,7 @@
                             </li>
                             @if (Route::has('login'))
                                 @auth
-                                  @if (Auth::user()->usertype==='ADM')
+                                  @if (Auth::user()->usertype==='ADM' || Auth::user()->usertype==='Vendor')
                                     <li class="menu-item menu-item-has-children parent" >
                                         <a title="account" href="#">My Account({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="submenu curency" >

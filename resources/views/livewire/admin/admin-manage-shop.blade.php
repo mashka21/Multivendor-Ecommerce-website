@@ -35,12 +35,22 @@
                                         <td>{{$vendor->id}}</td>
                                         <td>{{$vendor->shop_name}}</td>
                                         <td style="width: 100px important;">{{$vendor->description}}</td>
-                                        <td>
+                                        {{-- <td>
                                             @if($vendor->is_active === 1)
                                             <span class="btn-success btn-sm">Active</span>
                                             @else
                                             <span class="btn-info btn-sm">In active</span>
                                             @endif
+                                        </td> --}}
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="btn btn-success btn-sm dropdown-toggle" type="submit" data-toggle="dropdown">Status
+                                                    <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown-item"><a href="#" wire:click.prevent="Activation({{$vendor->id}},'1')">Active</a></li>
+                                                    <li class="dropdown-item"><a href="#" wire:click.prevent="Activation({{$vendor->id}},'0')">In Active</a></li>
+                                                </ul>
+                                            </div>
                                         </td>
                                         <td>{{$vendor->created_at}}</td>
                                         <td>

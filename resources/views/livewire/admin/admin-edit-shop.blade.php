@@ -30,17 +30,8 @@
                                 @error('shop_description')<span class="text-danger">{{$message}}</span> @enderror <br>
                             </div>
 
-                            <div class="form-group">
-                                <label>Activate This Shop</label>
-                                    <select class="form-control input-md" wire:model="is_active">
-                                        <option value="0">Inactive</option>
-                                        <option value="1">Active</option>
-                                  </select>
-                                  @error('is_active')<span class="text-danger">{{$message}}</span> @enderror
-                            </div>
-
                             <div class="form-group text-center">
-                                <button type="submit" class="btn btn-success">Activate</button>
+                                <button type="submit" class="btn btn-success">Update</button>
                             </div>
                         </form>
                 </div>

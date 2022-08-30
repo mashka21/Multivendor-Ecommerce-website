@@ -24,4 +24,9 @@ class product extends Model
     public function attributeValues(){
         return $this->hasMany(AttributeValue::class,'product_id');
     }
+
+    public function Shop(){
+        return $this->belongsTo(VenderShop::class,'Shop_name');
+    }
+
 }

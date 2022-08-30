@@ -125,19 +125,23 @@
             </a>
           </li>
 
-          <li class="nav-item {{ request()->is('*admin/shop*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{route('admin.shops')}}">
-              <i class="icon-grid fa-solid fa-certificate icon-grid menu-icon"></i>
-              <span class="menu-title">Manage Shops</span>
-            </a>
-          </li>
+          @if(Auth::user()->usertype==='ADM')
+            <li class="nav-item {{ request()->is('*admin/shop*') ? 'active' : '' }}">
+              <a class="nav-link" href="{{route('admin.shops')}}">
+                <i class="icon-grid fa-solid fa-certificate icon-grid menu-icon"></i>
+                <span class="menu-title">Manage Shops</span>
+              </a>
+            </li>
+          @endif
 
-          <li class="nav-item {{ request()->is('*admin/categories*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{route('admin.categories')}}">
-              <i class="icon-grid fa-solid fa-certificate icon-grid menu-icon"></i>
-              <span class="menu-title">Manage Categories</span>
-            </a>
-          </li>
+          @if(Auth::user()->usertype==='ADM')
+            <li class="nav-item {{ request()->is('*admin/categories*') ? 'active' : '' }}">
+              <a class="nav-link" href="{{route('admin.categories')}}">
+                <i class="icon-grid fa-solid fa-certificate icon-grid menu-icon"></i>
+                <span class="menu-title">Manage Categories</span>
+              </a>
+            </li>
+          @endif
 
           <li class="nav-item {{ request()->is('*admin/products*') ? 'active' : '' }}">
             <a class="nav-link" href="{{route('admin.products')}}">
@@ -153,26 +157,32 @@
             </a>
           </li>
 
-          <li class="nav-item {{ request()->is('*admin/slider*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{route('admin.homeslider')}}">
-              <i class="fa-solid fa-house icon-grid menu-icon"></i>
-              <span class="menu-title">Manage Home Slider</span>
-            </a>
-          </li>
+          @if (Auth::user()->usertype==='ADM')
+            <li class="nav-item {{ request()->is('*admin/slider*') ? 'active' : '' }}">
+              <a class="nav-link" href="{{route('admin.homeslider')}}">
+                <i class="fa-solid fa-house icon-grid menu-icon"></i>
+                <span class="menu-title">Manage Home Slider</span>
+              </a>
+            </li>
+          @endif
 
-          <li class="nav-item {{ request()->is('*admin/homeCategories*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{route('admin.homecategories')}}">
-             <i class="icon-grid fa-solid fa-certificate icon-grid menu-icon"></i>
-              <span class="menu-title">Manage Home Categories</span>
-            </a>
-          </li>
+          @if (Auth::user()->usertype==='ADM')
+            <li class="nav-item {{ request()->is('*admin/homeCategories*') ? 'active' : '' }}">
+              <a class="nav-link" href="{{route('admin.homecategories')}}">
+              <i class="icon-grid fa-solid fa-certificate icon-grid menu-icon"></i>
+                <span class="menu-title">Manage Home Categories</span>
+              </a>
+            </li>
+          @endif
 
-          <li class="nav-item {{ request()->is('*admin/sale*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{route('admin.sale')}}">
-              <i class="fa-brands fa-salesforce icon-grid menu-icon"></i>
-              <span class="menu-title">Manage OnSale Products</span>
-            </a>
-          </li>
+          @if (Auth::user()->usertype==='ADM')
+            <li class="nav-item {{ request()->is('*admin/sale*') ? 'active' : '' }}">
+              <a class="nav-link" href="{{route('admin.sale')}}">
+                <i class="fa-brands fa-salesforce icon-grid menu-icon"></i>
+                <span class="menu-title">Manage OnSale Products</span>
+              </a>
+            </li>
+          @endif
 
           <li class="nav-item {{ request()->is('*admin/coupons*') ? 'active' : '' }}">
             <a class="nav-link" href="{{route('admin.coupons')}}">
@@ -195,12 +205,14 @@
             </a>
           </li>
 
-          <li class="nav-item {{ request()->is('*admin/settings*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{route('admin.settings')}}">
-              <i class="ti-settings icon-grid menu-icon"></i>
-              <span class="menu-title">Manage Settings</span>
-            </a>
-          </li>
+          @if (Auth::user()->usertype==='ADM')
+            <li class="nav-item {{ request()->is('*admin/settings*') ? 'active' : '' }}">
+              <a class="nav-link" href="{{route('admin.settings')}}">
+                <i class="ti-settings icon-grid menu-icon"></i>
+                <span class="menu-title">Manage Settings</span>
+              </a>
+            </li>
+          @endif
 
 
 

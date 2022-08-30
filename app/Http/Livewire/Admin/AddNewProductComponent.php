@@ -9,6 +9,7 @@ use App\Models\ProductAttribute;
 use App\Models\subcategory;
 use Carbon\Carbon;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -24,6 +25,7 @@ class AddNewProductComponent extends Component
     public $description;
     public $regular_price;
     public $sale_price;
+    public $shop_name;
     public $SKU;
     public $stock_status;
     public $featured;
@@ -40,6 +42,9 @@ class AddNewProductComponent extends Component
 
     public function mount(){
         $this->stock_status = 'instock';
+        if(Auth::user()->usertype === 'Vendor'){
+            $this->shop_name = Auth::user()->Shop->shop_name;
+        }
         $this->featured = 0;
     }
 
@@ -99,6 +104,9 @@ class AddNewProductComponent extends Component
         $product->regular_price = $this->regular_price;
         $product->sale_price = $this->sale_price;
         $product->SKU = $this->SKU;
+        if(Auth::user()->usertype==='Vendor'){
+            $product->Shop_name = $this->shop_name;
+        }
         $product->stock_status = $this->stock_status;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;

@@ -31,10 +31,8 @@
                           </div>
                           <div class="form-group">
                               <label>Short Description</label>
-                              <div wire:ignore>
-                                <textarea type="text" id="short_description" class="form-control input-md" rows="5" placeholder="Short Description" wire:model="short_description"></textarea>
+                                <input type="text"  class="form-control input-md"  placeholder="Short Description" wire:model="short_description">
                                 @error('short_description')<span class="text-danger">{{$message}}</span> @enderror <br>
-                              </div>
                           </div>
                           <div class="form-group">
                               <label>Description</label>
@@ -47,12 +45,19 @@
                             <label>Regular Price</label>
                               <input type="text" class="form-control input-md" placeholder="Regular Price" wire:model="regular_price">
                               @error('regular_price')<span class="text-danger">{{$message}}</span> @enderror <br>
-                        </div>
+                          </div>
                           <div class="form-group">
                             <label>Sale Price</label>
                               <input type="text" class="form-control input-md" placeholder="Sale Price" wire:model="sale_price">
                               @error('sale_price')<span class="text-danger">{{$message}}</span> @enderror <br>
                           </div>
+                          @if (Auth::user()->usertype === 'Vendor')
+                            <div class="form-group">
+                              <label>Shop Name as Default</label>
+                                <input type="text" disabled class="form-control input-md" placeholder="Sale Price" wire:model="shop_name">
+                                @error('sale_price')<span class="text-danger">{{$message}}</span> @enderror <br>
+                            </div>
+                          @endif
                           <div class="form-group">
                             <label>SKU</label>
                               <input type="text" class="form-control input-md" placeholder="SKU" wire:model="SKU">
